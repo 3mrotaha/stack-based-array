@@ -43,6 +43,17 @@ ErrorStates_t Pop(StackEntry * pentry, Stack_t *pstack){
 	}
 }
 
+ErrorStates_t StackSize(int* Size, Stack_t stack){
+	if(stack.top == 0){
+		*Size = 0;
+		return STACK_EMPTY;
+	}
+	else{
+		*Size = stack.top;
+		return STACK_NOT_EMPTY;
+	}
+}
+
 ErrorStates_t StackTop(StackEntry* pentry, Stack_t* pstack){
 	if(pstack->top != 0){
 		*pentry = pstack->Items[pstack->top - 1];
